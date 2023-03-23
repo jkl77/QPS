@@ -35,8 +35,22 @@ def index():
          return render_template('index.html', appName=appName)
      return render_template('index.html')
 
-@app.route('/queens', methods=('GET', 'POST'))
-def queens():
+
+@app.route('/queensHP', methods=('GET', 'POST'))
+def queensHP():
+     if request.method == 'POST':
+         if request.form.get('btn-fs') == 'QUEENS_U':
+             pageName = "Queens University"
+         elif request.form.get('btn-do') == 'WESTERN_U':
+             pageName = "Western University"
+         else:
+             pass
+     elif request.method == 'GET':
+         return render_template('queensHP.html', appName=appName)
+     return render_template('queensHP.html')
+
+@app.route('/queensRes', methods=('GET', 'POST'))
+def queensRes():
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
@@ -49,8 +63,8 @@ def queens():
             flash('Content is empty!')
         else:
             queensMessages.append({'title': title, 'content': content})
-            return redirect(url_for('queens'))
-    return render_template('queens.html', appName=appName, queensMessages=queensMessages)
+            return redirect(url_for('queensRes'))
+    return render_template('queensRes.html', appName=appName, queensMessages=queensMessages)
 
 @app.route('/western', methods=('GET', 'POST'))
 def western():
