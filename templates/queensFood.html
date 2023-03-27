@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="rtn-btn">
+    <a href="{{ url_for('queensHP') }}"><</a>
+  </div>
+  <div class="title">
+    <h1>Queen's University</h1>
+    <h1>Food Options</h1>
+  </div>
+
+  <div class="msg-bd">
+    <h1>New Post</h1>
+    {% for message in get_flashed_messages() %}
+      <div class="alert">{{ message }}</div>
+    {% endfor %}
+    <form method="post">
+      <br>
+      <input type="text" name="title"
+             placeholder="Message title"
+             value="{{ request.form['title'] }}"
+             id="titleInput"></input>
+      <br>
+      <textarea name="content"
+                placeholder="Message content"
+                rows="15"
+                cols="60"
+                id="contentInput">{{ request.form['content'] }}</textarea>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+    <h1>Food Posts</h1>
+      {% for message in queensFoodMessages %}
+          <div class='message'>
+              <h3>{{ message['title'] }}</h3>
+              <p>{{ message['content'] }}</p>
+          </div>
+      {% endfor %}
+  </div>
+{% endblock %}
