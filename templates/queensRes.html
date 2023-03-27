@@ -10,7 +10,7 @@
   </div>
 
   <div class="msg-bd">
-    <h1>New Message</h1>
+    <h1>New Post</h1>
     {% for message in get_flashed_messages() %}
       <div class="alert">{{ message }}</div>
     {% endfor %}
@@ -29,8 +29,8 @@
       <br>
       <button type="submit">Submit</button>
     </form>
-    <h1>Messages</h1>
-      {% for message in queensMessages %}
+    <h1>Residence Posts</h1>
+      {% for message in queensResMessages %}
           <div class='message'>
               <h3>{{ message['title'] }}</h3>
               <p>{{ message['content'] }}</p>
