@@ -1,23 +1,57 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="rtn-btn">
-    <a href="{{ url_for('index') }}"><</a>
-</div>
-  <div class="title">
-    <h1>Queen's University</h1>
+<section id="queensHP">
+  <div class="rtn-btn">
+      <a href="{{ url_for('index') }}"><</a>
   </div>
-<br>
-<br>
-<center>
-<div class="dropdown">
-    <button>Categories</button>
-    <div class="dropdown-options">
-      <a href="{{ url_for('queensRes') }}">Residences</a>
-      <a href="{{ url_for('queensCourse') }}">Courses</a>
-      <a href="{{ url_for('queensFood') }}">Food Options</a>
-      <a href="{{ url_for('queensSocial') }}">Social Life</a>
+    <div class="title">
+      <h1>Queen's University</h1>
     </div>
-</div>
-</center>
+  <br>
+  <div class="dscrptn">
+    <h3>Queen's University, located in Kingston, Ontario, is known as one of the top universities in Canada. 
+      The university is renowned for its strong sense of community and provides students with a vibrant campus life. 
+      Overall, Queen's University is an excellent choice for any student who is looking for a high-quality education 
+      in a supportive and engaging environment.
+    </h3>
+  </div>
+  <br>
+  <center>
+  <div class="dropdown">
+      <button>Categories</button>
+      <div class="dropdown-options">
+        <a href="{{ url_for('queensRes') }}">Residences</a>
+        <a href="{{ url_for('queensCourse') }}">Courses</a>
+        <a href="{{ url_for('queensFood') }}">Food Options</a>
+        <a href="{{ url_for('queensSocial') }}">Social Life</a>
+      </div>
+  </div>
+  </center>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</section>
 {% endblock %}
