@@ -9,32 +9,73 @@
     <h1>Social Life</h1>
   </div>
 
-  <div class="msg-bd">
-    <h1>New Posts</h1>
-    {% for message in get_flashed_messages() %}
-      <div class="alert">{{ message }}</div>
-    {% endfor %}
-    <form method="post">
-      <br>
-      <input type="text" name="title"
-             placeholder="Message title"
-             value="{{ request.form['title'] }}"
-             id="titleInput"></input>
-      <br>
-      <textarea name="content"
-                placeholder="Message content"
-                rows="15"
-                cols="60"
-                id="contentInput">{{ request.form['content'] }}</textarea>
-      <br>
-      <button type="submit">Submit</button>
-    </form>
-    <h1>Event Posts</h1>
-      {% for message in queensSocialMessages %}
-          <div class='message'>
-              <h3>{{ message['title'] }}</h3>
-              <p>{{ message['content'] }}</p>
-          </div>
-      {% endfor %}
+<div class="msg-bd">
+  <h1>New Posts</h1>
+  {% for message in get_flashed_messages() %}
+    <div class="alert">{{ message }}</div>
+  {% endfor %}
+  <form method="post">
+    <br>
+  <label for="title">Choose from the following events:</label>
+  <select name="title" value="{{ request.form['title'] }}" id="titleInput">
+    <option value="Frosh Week">Frosh Week</option>
+    <option value="Homecoming (HOCO)">Homecoming(HOCO)</option>
+    <option value="Fake-Homecoming (FOCO)">Fake-Homecoming(FOCO)</option>
+    <option value="St.Paddy's Day">St.Paddy's Day</option>
+  </select>
+    <br>
+    <br>
+    <textarea name="content"
+              placeholder="Post Content"
+              rows="15"
+              cols="70"
+              id="contentInput">{{ request.form['content'] }}</textarea>
+    <br>
+
+    <div class="rating">
+
+      <input type="radio" id="star5" name="rating" value="11111" />
+      <label for="star5" title="text">{{ request.form['rating'] }}</label>
+
+      <input type="radio" id="star4" name="rating" value="1111" />
+      <label for="star4" title="text">{{ request.form['rating'] }}</label>
+
+      <input type="radio" id="star3" name="rating" value="111" />
+      <label for="star3" title="text">{{ request.form['rating'] }}</label>
+
+      <input type="radio" id="star2" name="rating" value="11" />
+      <label for="star2" title="text">{{ request.form['rating'] }}</label>
+
+      <input type="radio" id="star1" name="rating" value="1" />
+      <label for="star1" title="text">{{ request.form['rating'] }}</label>
+
+      <input class="rating0" type="radio" id="star0" name="rating" value="" checked="checked" />
+      <label class="rating0" id="star0" title="text">{{ request.form['rating'] }}</label>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <button type="submit">Submit</button>
+  </form>
+  <br>
+
+  <div id="content-IMG">
+    <img src="https://www.queensjournal.ca/sites/default/files/styles/large/public/img/story/2022/10/28/sandrine-jacquot_aberdeen-foco_web.jpg?itok=yB35V50b" class="ribbon" alt="" />
   </div>
+
+  <br>
+  <h1>Event Posts</h1>
+    {% for message in queensSocialMessages %}
+        <div class='message'>
+            <h3>{{ message['title'] }}</h3>
+            <p>{{ message['content'] }}</p>
+            {% for num in message['rating'] %}
+              <span class="fa fa-star checked"></span>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
